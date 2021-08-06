@@ -17,9 +17,15 @@
         <td><%= product.title %></td>
         <td><%= product.unit_price %></td>
         <td><%= link_to 'Show', shop_path(product) %></td>
+        <%= form_with model: @order_item, url: order_items_path, remote: true do |form| %>
+        <%= form.hidden_field :product_id, value: product.id %>
+        <td><%= form.number_field :quantity %></td>
+        <td><%= form.submit "Update Cart" %></td>
+        <% end %>
       </tr>
     <% end %>
   </tbody>
 </table>
+<div id="card-link"><%= link_to "Your Cart has #{current_order.order_items.size}", card_path %></div>
 
 <br>
