@@ -1,0 +1,18 @@
+<p id="notice"><%= notice %></p>
+<h1>Your Cart</h1>
+<table>
+  <thead>
+    <tr>
+      <th>Title</th>
+      <th>Unit price</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody id="show-tbody">
+    <%= render 'order_items' %>
+  </tbody>
+</table>
+<div id="card-link"><%= link_to "Your Cart has #{@order_items.size} with subtotal #{current_order.grand_total}", card_path %></div>
+
+<br>
