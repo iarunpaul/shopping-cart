@@ -28,5 +28,6 @@
 </table>
 <div id="card-link"><%= link_to "Your Cart has #{current_order.order_items.size}", card_path %></div>
 <div id="new_article"></div>
+<%= paginate @products %>
 
 <br>
