@@ -17,7 +17,14 @@ class ProductsController < ApplicationController
 
   # GET /products/1/edit
   def edit
+    if @product.update(product_params)
+      redirect_to @product, notice: 'Product updated successfully!'
+    else
+      flash.now[:alert] = 'Error occured'
+      render  edit_admin_product(@product)
+    end
   end
+
 
   # POST /products or /products.json
   def create
