@@ -8,8 +8,45 @@ class Product < ApplicationRecord
   paginates_per 10
   scope :unreleased, -> { where("released_at > ?", Date.today) }
 
+  settings do
+    mappings dynamic: false do
+      indexes :title, type: :text, analyzer: :english
+      indexes :unit_price, type: :double
+      indexes :released_at, type: :date
+    end
+  end
+  # [FIX] resolution of conflict with ransack#search
+  # [FIX] as per https://github.com/elastic/elasticsearch-rails/issues/96
   def self.search_with_elasticsearch(*args)
     __elasticsearch__.search(*args)
+  end
+
+  # elasticsearch with released filter
+  def self.search_published(query)
+    __elasticsearch__.search({
+      query: {
+        bool: {
+          must: {
+            match: {
+              title: query
+            }
+          },
+          # [
+          # {
+          #   multi_match: {
+          #     query: query,
+          #     fields: [:title]
+          #   }
+          # },
+        # ]
+           filter: {
+            range: {
+              released_at: { lte: Date.today }
+            }
+          }
+        }
+      }
+    })
   end
 
 end
