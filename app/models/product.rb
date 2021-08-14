@@ -23,7 +23,7 @@ class Product < ApplicationRecord
 
   # elasticsearch with released filter
   def self.search_published(query)
-    __elasticsearch__.search({
+    __elasticsearch__.search({load: true, 
       query: {
         bool: {
           must: {
