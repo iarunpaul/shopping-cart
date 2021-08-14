@@ -1,7 +1,8 @@
 class ShopsController < ApplicationController
   def index
     if params[:query]
-      @products = Product.search_published(params[:query]).page params[:page]
+      # @products = Product.search_published(params[:query]).records#.page params[:page]
+      @products = Product.search_published(params[:query]).records.page params[:page]
     else
       @products = Product.order(:released_at).page params[:page]
     end
@@ -11,6 +12,4 @@ class ShopsController < ApplicationController
   def show
     @product = Product.find(params[:id])
   end
-
-
 end

@@ -15,6 +15,11 @@ class Product < ApplicationRecord
       indexes :released_at, type: :date
     end
   end
+
+  def released_date
+    released_at.strftime("%d-%m-%Y")
+  end
+
   # [FIX] resolution of conflict with ransack#search
   # [FIX] as per https://github.com/elastic/elasticsearch-rails/issues/96
   def self.search_with_elasticsearch(*args)
@@ -23,7 +28,7 @@ class Product < ApplicationRecord
 
   # elasticsearch with released filter
   def self.search_published(query)
-    __elasticsearch__.search({load: true, 
+    __elasticsearch__.search({
       query: {
         bool: {
           must: {
