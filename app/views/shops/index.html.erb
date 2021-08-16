@@ -1,37 +1,35 @@
 <section class="section">
   <div class="columns is-centered">
-    <div class="column is-half has-text-centered">
+    <div class="column is-half">
       <nav class="level">
-        <!-- Left side -->
-        <div class="level-left">
-          <div class="level-item">
-            <p class="subtitle is-5">
-              <strong>Elastic search</strong> for products
-            </p>
-          </div>
-          <%= form_with url: shops_path, method: :get do |form| %>
-          <div class="level-item">
-            <div class="field has-addons">
-              <div class="control">
-                <%= form.text_field :query, class: 'input' %>
-              </div>
-              <div class="control">
-                <%= form.submit 'Search', class: 'button is-link is-rounded is-outlined' %>
-              </div>
+        <div class="level-item">
+          <p class="subtitle is-5">
+            <strong>Elastic search</strong> for products
+          </p>
+        </div>
+        <%= form_with url: shops_path, method: :get do |form| %>
+        <div class="level-item">
+          <div class="field">
+            <div class="control">
+              <%= form.text_field :query, class: 'input is-rounded' %>
             </div>
           </div>
-          <% end %>
+          <div class="field">
+            <div class="control">
+              <%= form.submit 'Search', class: 'button is-link is-rounded is-outlined' %>
+            </div>
+          </div>
         </div>
+        <% end %>
       </nav>
     </div>
-
   </div>
   <div class="columns is-centered">
     <div class="column is-four-fifths">
     <h1 class="title">Products</h1>
 
       <table class="table">
-        <thead>
+        <thead class="has-text-centered">
           <tr>
             <th>Title</th>
             <th>Unit price</th>
@@ -50,11 +48,17 @@
               <td><%= link_to 'Show', shop_path(product), class: 'button is-link is-small is-inverted is-rounded' %></td>
               <td>
                 <%= form_with model: @order_item, id: 'new_item_form', url: order_items_path, local: false do |form| %>
-                <%= form.hidden_field :product_id, value: product.id %>
-                <%= form.number_field :quantity %>
-                <%= form.submit "Add to Cart", class: 'button is-small is-primary is-rounded' %>
+                  <%= form.hidden_field :product_id, value: product.id %>
+                  <div class="field has-addons">
+                    <div class="control">
+                      <%= form.number_field :quantity, class: 'input is-rounded is-small' %>
+                    </div>
+                    <div class="control">
+                      <%= form.submit "Add to Cart", class: 'button is-small is-primary is-outlined is-rounded' %>
+                    </div>
+                  </div>
+                <% end %>
               </td>
-              <% end %>
             </tr>
           <% end %>
         </tbody>
