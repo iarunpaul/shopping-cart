@@ -4,6 +4,8 @@ class OrderItem < ApplicationRecord
 
   before_save :set_unit_price, :set_total
 
+  validates :quantity, numericality: { only_integer: true, greater_than: 0 }
+
   def unit_price
     if persisted?
       self[:unit_price]
