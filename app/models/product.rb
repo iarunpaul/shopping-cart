@@ -5,7 +5,7 @@ class Product < ApplicationRecord
   include Elasticsearch::Model::Callbacks
   has_many :order_items
   belongs_to :category
-  paginates_per 10
+  paginates_per 5
   scope :unreleased, -> { where("released_at > ?", Date.today) }
 
   settings do

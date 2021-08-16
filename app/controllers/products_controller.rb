@@ -17,12 +17,7 @@ class ProductsController < ApplicationController
 
   # GET /products/1/edit
   def edit
-    if @product.update(product_params)
-      redirect_to @product, notice: 'Product updated successfully!'
-    else
-      flash.now[:alert] = 'Error occured'
-      render  edit_admin_product(@product)
-    end
+
   end
 
 
@@ -45,7 +40,10 @@ class ProductsController < ApplicationController
   def update
     respond_to do |format|
       if @product.update(product_params)
-        format.html { redirect_to @product, notice: "Product was successfully updated." }
+        format.html do
+          flash[:success] = "Product was successfully updated."
+          redirect_to @product
+        end
         format.json { render :show, status: :ok, location: @product }
       else
         format.html { render :edit, status: :unprocessable_entity }

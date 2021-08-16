@@ -1,12 +1,18 @@
-<p id="notice"><%= notice %></p>
+<section class="section">
+  <div class="container">
+    <div class="columns is-centered">
+      <div class="column is-half">
+        <p  class="title">
+          <strong>Title:</strong>
+          <span><%= @product.title %></span>
+        </p>
 
-<p>
-  <strong>Title:</strong>
-  <%= @product.title %>
-</p>
-
-<p>
-  <strong>Unit price:</strong>
-  <%= @product.unit_price %>
-</p>
-<%= link_to 'Back', shops_path %>
+        <p class="subtitle">
+          <strong>Unit price:</strong>
+          <span><%= @product.unit_price %></span>
+        </p>
+        <%= link_to 'Back', shops_path, class: 'button is-info is-rounded is-small' %>
+      </div>
+    </div>
+  </div>
+</section>

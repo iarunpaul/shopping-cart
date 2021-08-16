@@ -1,1 +1,4 @@
-<%= link_to "Your Cart has #{current_order.order_items.size} items with subtotal of #{current_order.grand_total}", card_path %>
+<div class="notification is-info has-text-centered">
+  <%= link_to "Your Cart", card_path %> has <%= current_order.order_items.size %>
+  items with subtotal of <%= current_order.grand_total %>
+</div>

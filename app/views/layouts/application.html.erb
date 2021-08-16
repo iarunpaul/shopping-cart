@@ -12,6 +12,9 @@
 
   <body>
     <%= render 'layouts/navigation' %>
+    <% flash.each do |type, message| %>
+      <%= content_tag :div, message, class: ['notification', "is-#{type}"] %>
+    <% end %>
     <%= yield %>
   </body>
 </html>

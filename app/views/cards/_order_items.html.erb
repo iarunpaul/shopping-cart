@@ -2,14 +2,20 @@
   <tr>
     <td><%= order_item.product.title %></td>
     <td><%= order_item.unit_price %></td>
-    <td><%= link_to 'Show', shop_path(order_item.product) %></td>
+    <td><%= link_to 'Show', shop_path(order_item.product), class: 'button is-link is-inverted is-rounded is-small' %></td>
     <td>
       <%= form_with model: @order_item, url: order_item, method: :put, local: false, id: 'update-form' do |form| %>
-      <%# form.hidden_field :product_id, value: order_item.product.id %>
-      <%= form.number_field :quantity, value: order_item.quantity %>
-      <%= form.submit "Update Cart" %>
+        <%# form.hidden_field :product_id, value: order_item.product.id %>
+        <div class="field has-addons">
+          <div class="control">
+            <%= form.number_field :quantity, value: order_item.quantity, class: 'input is-small is-rounded' %>
+          </div>
+          <div class="control">
+            <%= form.submit "Update Cart", class: 'button is-rounded is-small is-link is-outlined' %>
+          </div>
+        </div>
       <% end %>
     </td>
-    <td id="remove-<%= order_item.id %>"><%= link_to "remove", order_item, method: :delete, remote: true %></td>
+    <td><%= link_to "remove", order_item, method: :delete, remote: true, class: 'button is-danger is-inverted is-small is-rounded' %></td>
   </tr>
 <% end %>
