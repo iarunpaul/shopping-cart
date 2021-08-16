@@ -15,6 +15,8 @@ Rails.start()
 Turbolinks.start()
 ActiveStorage.start()
 
+require('@client-side-validations/client-side-validations')
+
 // window.addEventListener("load", () => {
 //   const element = document.querySelector("form#new_item_form");
 //   element.addEventListener("ajax:success", (event) => {
