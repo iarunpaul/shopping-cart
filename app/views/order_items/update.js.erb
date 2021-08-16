@@ -1,2 +1,1 @@
-$("#card-link").html("<%= j link_to "Your Cart has #{current_order.order_items.size} with subtotal #{current_order.grand_total}", card_path %>");
-alert("Update Success");
+$("#card-link").html("<%= j render 'card_link' %>");

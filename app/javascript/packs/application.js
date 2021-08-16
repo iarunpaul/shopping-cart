@@ -12,3 +12,16 @@ import "bulma"
 Rails.start()
 Turbolinks.start()
 ActiveStorage.start()
+
+// window.addEventListener("load", () => {
+//   const element = document.querySelector("form#new_item_form");
+//   element.addEventListener("ajax:success", (event) => {
+//     const [_data, _status, xhr] = event.detail;
+//     alert(xhr.responseText);
+
+//     element.insertAdjacentHTML("beforeend", "<p>DONE</p>");
+//   });
+//   element.addEventListener("ajax:error", () => {
+//     element.insertAdjacentHTML("beforeend", "<p>ERROR</p>");
+//   });
+// });
