@@ -309,7 +309,6 @@ DEPENDENCIES
   elasticsearch-rails!
   faker
   jbuilder (~> 2.7)
-  jquery-rails
   kaminari
   listen (~> 3.3)
   puma (~> 5.0)

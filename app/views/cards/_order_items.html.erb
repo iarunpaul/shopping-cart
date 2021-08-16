@@ -1,5 +1,5 @@
 <% @order_items.each do |order_item| %>
-  <tr>
+  <tr id="tr-<%= order_item.id %>">
     <td><%= order_item.product.title %></td>
     <td><%= order_item.unit_price %></td>
     <td><%= link_to 'Show', shop_path(order_item.product), class: 'button is-link is-inverted is-rounded is-small' %></td>

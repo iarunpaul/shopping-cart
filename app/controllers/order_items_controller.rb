@@ -15,14 +15,12 @@ class OrderItemsController < ApplicationController
     @order_items = current_order.order_items
     @order_item = @order_items.find(params[:id])
     @order_item.update(quantity: params[:order_item][:quantity])
-    @order_items = current_order.order_items
   end
 
   def destroy
     @order_items = current_order.order_items
     @order_item = @order_items.find(params[:id])
     @order_item.destroy
-    @order_items = current_order.order_items
   end
 
 
