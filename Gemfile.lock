@@ -115,12 +115,12 @@ GEM
     concurrent-ruby (1.1.9)
     crass (1.0.6)
     diff-lcs (1.4.4)
-    elasticsearch (7.14.0)
-      elasticsearch-api (= 7.14.0)
-      elasticsearch-transport (= 7.14.0)
-    elasticsearch-api (7.14.0)
+    elasticsearch (7.10.1)
+      elasticsearch-api (= 7.10.1)
+      elasticsearch-transport (= 7.10.1)
+    elasticsearch-api (7.10.1)
       multi_json
-    elasticsearch-transport (7.14.0)
+    elasticsearch-transport (7.10.1)
       faraday (~> 1)
       multi_json
     erubi (1.10.0)
@@ -332,6 +332,7 @@ DEPENDENCIES
   byebug
   capybara
   client_side_validations
+  elasticsearch (= 7.10.1)
   elasticsearch-model!
   elasticsearch-rails!
   faker
