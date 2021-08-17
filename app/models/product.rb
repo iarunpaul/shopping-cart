@@ -8,6 +8,7 @@ class Product < ApplicationRecord
   paginates_per 5
   scope :unreleased, -> { where("released_at > ?", Date.today) }
 
+  settings index: { number_of_shards: 1 }
   settings do
     mappings dynamic: false do
       indexes :title, type: :text, analyzer: :english
