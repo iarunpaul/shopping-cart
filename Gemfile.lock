@@ -1,5 +1,5 @@
 GIT
-  remote: git://github.com/elastic/elasticsearch-rails.git
+  remote: https://github.com/elastic/elasticsearch-rails.git
   revision: 2e33f226789c612599850dc5728f6bddcfa9fee7
   branch: master
   specs:
@@ -8,6 +8,15 @@ GIT
       elasticsearch (~> 7)
       hashie
     elasticsearch-rails (7.2.0)
+
+GIT
+  remote: https://github.com/omc/bonsai-elasticsearch-rails.git
+  revision: 942dea4a263e0b86c7dc197528ea9770c88146c8
+  branch: master
+  specs:
+    bonsai-elasticsearch-rails (0.3.0)
+      elasticsearch-model (< 99)
+      elasticsearch-rails (< 99)
 
 GEM
   remote: https://rubygems.org/
@@ -195,6 +204,7 @@ GEM
     nokogiri (1.12.1)
       mini_portile2 (~> 2.6.1)
       racc (~> 1.4)
+    pg (1.2.3)
     public_suffix (4.0.6)
     puma (5.4.0)
       nio4r (~> 2.0)
@@ -317,6 +327,7 @@ PLATFORMS
 
 DEPENDENCIES
   activeadmin
+  bonsai-elasticsearch-rails!
   bootsnap (>= 1.4.4)
   byebug
   capybara
@@ -327,6 +338,7 @@ DEPENDENCIES
   jbuilder (~> 2.7)
   kaminari
   listen (~> 3.3)
+  pg
   puma (~> 5.0)
   rack-mini-profiler (~> 2.0)
   rails (~> 6.1.4)
